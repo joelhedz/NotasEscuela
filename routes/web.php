@@ -1,5 +1,6 @@
 <?php
-use App\Http\Controllers\AlumnoController; 
+
+use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\NotaController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,21 +16,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('');
+    return view('layouts.principal');
 });
+
+Route::resource('/alumno', 'App\Http\Controllers\AlumnoController');
+Route::resource('/nota', 'App\Http\Controllers\NotaController');
+
+Route::get('/nota/{id}', [NotaController::class, 'show']);
+Route::get('/nota/create/{id}', [NotaController::class, 'create']);
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
+
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 });
-
-Route::resource('/alumno','App\Http\Controllers\AlumnoController');
-Route::resource('/nota','App\Http\Controllers\NotaController');
-
-Route::get('/nota/{id}',[NotaController::class,'show']);
-Route::get('/nota/create/{id}',[NotaController::class,'create']);

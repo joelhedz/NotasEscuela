@@ -8,7 +8,12 @@
 </head>
 
 <body>
-
+    <header>
+        <h1>Hola</h1>
+    </header>
+    <main>
+        @yield('hijos')
+    </main>
 </body>
 
 </html>
