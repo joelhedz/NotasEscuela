@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\AlumnoController; 
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +26,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::resource('/alumno','App\Http\Controllers\AlumnoController');

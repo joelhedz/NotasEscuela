@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
 
+namespace App\Http\Controllers;
+Use App\Models\Alumno;
 use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
@@ -11,7 +12,8 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        //
+        $alumno=Alumno::All();
+        return view('alumno.index')->with('alumnos',$alumno);
     }
 
     /**
