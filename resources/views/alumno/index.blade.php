@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 @section('hijos')
 <h1>Modulo de Alumnos</h1>
-<a href="alumno/create" class="btn btn-primary">Crear nuevo afiliado </a>
+<a href="alumno/create" class="btn btn-primary">Crear nuevo alumno</a>
 
 
 <table class="table">

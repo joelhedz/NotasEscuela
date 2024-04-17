@@ -21,7 +21,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        //
+        return view('alumno.create');
     }
 
     /**
@@ -29,7 +29,16 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $alumno = new Empleado();
+        $alumno ->identidad=$request->get('identidad');
+        $alumno ->primernombre=$request->get('primernombre');
+        $alumno ->segundonombre=$request->get('segundonombre');
+        $alumno ->apellidos=$request->get('apellidos');
+        $alumno ->sexo=$request->get('sexo');
+        $alumno ->fechaN=$request->get('fechaN');
+        $alumno ->save();
+        return redirect('/alumno');
+    
     }
 
     /**
@@ -37,7 +46,8 @@ class AlumnoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $eliminarRegistro=Alumno::find($id);
+        return view('alumno.delete')->with('eliminar',$eliminarRegistro);
     }
 
     /**
@@ -45,7 +55,8 @@ class AlumnoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $editar=Alumno::find($id);
+        return view('alumno.edit')->with('editar', $editar);
     }
 
     /**
@@ -53,7 +64,16 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $alumno=Alumno::find($id);
+        $alumno ->identidad=$request->get('identidad');
+        $alumno ->primernombre=$request->get('primernombre');
+        $alumno ->segundonombre=$request->get('segundonombre');
+        $alumno ->apellidos=$request->get('apellidos');
+        $alumno ->sexo=$request->get('sexo');
+        $alumno ->fechaN=$request->get('fechaN');
+        $alumno ->save();
+        return redirect('/alumno');
+    
     }
 
     /**
@@ -61,6 +81,8 @@ class AlumnoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $eliminarRegistro=Alumno::find($id);
+        $eliminarRegistro->delete();
+        return redirect('/alumno');
     }
 }
