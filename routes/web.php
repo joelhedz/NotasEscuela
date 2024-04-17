@@ -1,6 +1,9 @@
 <?php
 use App\Http\Controllers\AlumnoController; 
 use App\Http\Controllers\NotaController;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\ClaseController;
+use App\Http\Controllers\SeccionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +36,9 @@ Route::resource('/nota','App\Http\Controllers\NotaController');
 
 Route::get('/nota/{id}',[NotaController::class,'show']);
 Route::get('/nota/create/{id}',[NotaController::class,'create']);
+
+Route::resource('/curso','App\Http\Controllers\CursoController');
+
+Route::resource('/clase','App\Http\Controllers\ClaseController');
+
+Route::resource('/seccion','App\Http\Controllers\SeccionController');
