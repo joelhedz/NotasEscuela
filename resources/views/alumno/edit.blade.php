@@ -12,7 +12,7 @@
     @method('PUT') 
     <div class="mb-3">
     <label for="">Identidad</label>
-    <input type="text" name="identidad" id="identidad" value="{{$editar->identidad}}" class="form-control">
+    <input type="text" name="identidad" id="identidad" value="{{$editar->idalumno}}" class="form-control">
     </div>
 
     <div class="mb-3">
@@ -33,7 +33,7 @@
     <label for="">Sexo</label>
     <input type="text" name="sexo" id="ciudad" value="{{$editar->sexo}}" class="form-control">
     </div>
-    
+
     <div class="mb-3">
     <label for="">Fecha de nacimiento</label>
     <input type="text" name="fechaN" id="fechaN" value="{{$editar->fechaN}}" class="form-control">

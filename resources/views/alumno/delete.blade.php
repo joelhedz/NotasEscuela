@@ -11,7 +11,7 @@
     @method('Delete') 
     <div class="mb-3">
     <label for="">Identidad</label>
-    <input type="text" name="identidad" id="identidad" value="{{$eliminar->identidad}}" class="form-control">
+    <input type="text" name="identidad" id="identidad" value="{{$eliminar->idalumno}}" class="form-control">
     </div>
 
     <div class="mb-3">

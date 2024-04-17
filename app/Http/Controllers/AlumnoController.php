@@ -29,8 +29,8 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        $alumno = new Empleado();
-        $alumno ->identidad=$request->get('identidad');
+        $alumno = new Alumno();
+        $alumno ->idalumno=$request->get('identidad');
         $alumno ->primernombre=$request->get('primernombre');
         $alumno ->segundonombre=$request->get('segundonombre');
         $alumno ->apellidos=$request->get('apellidos');
@@ -65,7 +65,7 @@ class AlumnoController extends Controller
     public function update(Request $request, string $id)
     {
         $alumno=Alumno::find($id);
-        $alumno ->identidad=$request->get('identidad');
+        $alumno ->idalumno=$request->get('identidad');
         $alumno ->primernombre=$request->get('primernombre');
         $alumno ->segundonombre=$request->get('segundonombre');
         $alumno ->apellidos=$request->get('apellidos');

@@ -22,7 +22,7 @@
     @foreach($alumnos as $alumno)
     <tr>
     <th>{{$alumno->id}}</th>
-        <th>{{$alumno->identidad}}</th>
+        <th>{{$alumno->idalumno}}</th>
         <th>{{$alumno->primernombre}}</th>
         <th>{{$alumno->segundonombre}}</th>
         <th>{{$alumno->apellidos}}</th>
@@ -30,9 +30,10 @@
         <th>{{$alumno->fechaN}}</th>
         <th>{{$alumno->edad}}</th>
         <th>
+        <a href="/nota/{{$alumno->id}}" class="btn btn-success">Notas</a>
         <a href="/alumno/{{$alumno->id}}/edit" class="btn btn-info">Editar</a>
         <th> 
-            <form action ="/alumno/{{$afiliado->id}}" method="POST"> 
+            <form action ="/alumno/{{$alumno->id}}" method="POST"> 
              @csrf
              @method('Delete') 
              <button type="submit" class="btn btn-warning">Eliminar</button>
