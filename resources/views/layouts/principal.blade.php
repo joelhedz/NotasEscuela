@@ -53,10 +53,10 @@
                         <ul class="nav collapse ms-1" id="docentes" data-bs-parent="#menu">
                             <div class="flex-column colorDespliegue py-2">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link text-white-50" aria-current="page">Registrar Docentes</a>
+                                    <a href="/docente" class="nav-link text-white-50" aria-current="page">Registrar Docentes</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link text-white-50" aria-current="page">Asignar Clases</a>
+                                    <a href="/asignar" class="nav-link text-white-50" aria-current="page">Asignar Clases</a>
                                 </li>
                             </div>
 

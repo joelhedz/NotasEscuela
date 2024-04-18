@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Ramsey\Uuid\Type\Integer;
 
 return new class extends Migration
 {
@@ -11,12 +12,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clases', function (Blueprint $table) {
-            $table->id();
-            $table->string('idclase', 30);
-            $table->string('nombre', 30);
-            $table->string('idseccion', 20);
-            $table->string('estado')->default('PEND')->max(4);
+        Schema::create('asignar_clases', function (Blueprint $table) {
+            $table->integer('idDocente');
+            $table->integer('idClase');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clases');
+        Schema::dropIfExists('asignar_clases');
     }
 };

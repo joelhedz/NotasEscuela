@@ -30,7 +30,7 @@
                 <th>
                     <form action="/seccion/{{$seccion->id}}" method="POST">
                         @csrf
-                        @method('Delete')
+                        @method('DELETE')
                         <button type="submit" class="btn btn-warning">Eliminar</button>
                     </form>
                 </th>

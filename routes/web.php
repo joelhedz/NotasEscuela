@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\AsignarClaseController;
 use App\Http\Controllers\NotaController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\ClaseController;
+use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\SeccionController;
+use App\Models\AsignarClase;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +38,13 @@ Route::resource('/clase', 'App\Http\Controllers\ClaseController');
 
 Route::resource('/seccion', 'App\Http\Controllers\SeccionController');
 
+Route::resource('/docente', 'App\Http\Controllers\DocenteController');
 
+Route::get('/asignar/{iddocente}', [AsignarClaseController::class, 'show']);
+
+Route::delete('/asignar/{iddocente}/{idasignarClase}', [AsignarClaseController::class, 'destroy'])->name('asignar.destroy');
+
+Route::resource('/asignar', 'App\Http\Controllers\AsignarClaseController');
 
 Route::middleware([
     'auth:sanctum',

@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clases', function (Blueprint $table) {
+        Schema::create('docentes', function (Blueprint $table) {
             $table->id();
-            $table->string('idclase', 30);
-            $table->string('nombre', 30);
-            $table->string('idseccion', 20);
-            $table->string('estado')->default('PEND')->max(4);
+            $table->string('identidad')->max(13);
+            $table->string('primerNombre');
+            $table->string('segundoNombre')->nullable();
+            $table->string('apellido');
+            $table->string('tipoNombramiento');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clases');
+        Schema::dropIfExists('docentes');
     }
 };
