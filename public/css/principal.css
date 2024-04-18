@@ -1,0 +1,26 @@
+.colorNav {
+    background-color: #131f28;
+    color: white;
+}
+
+.textColor {
+    color: rgb(214, 214, 214);
+}
+
+.colorDespliegue {
+    width: 100%;
+    background-color: #09111c;
+}
+
+header {
+    height: 8vh;
+}
+
+nav {
+    width: 20% !important;
+    height: 92vh;
+}
+
+.sectionContainer {
+    width: 80%;
+}

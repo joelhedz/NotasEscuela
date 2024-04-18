@@ -26,6 +26,7 @@ Route::resource('/alumno', 'App\Http\Controllers\AlumnoController');
 Route::resource('/nota', 'App\Http\Controllers\NotaController');
 
 Route::get('/nota/{id}', [NotaController::class, 'show']);
+
 Route::get('/nota/create/{id}', [NotaController::class, 'create']);
 
 Route::resource('/curso', 'App\Http\Controllers\CursoController');
@@ -33,6 +34,7 @@ Route::resource('/curso', 'App\Http\Controllers\CursoController');
 Route::resource('/clase', 'App\Http\Controllers\ClaseController');
 
 Route::resource('/seccion', 'App\Http\Controllers\SeccionController');
+
 
 
 Route::middleware([

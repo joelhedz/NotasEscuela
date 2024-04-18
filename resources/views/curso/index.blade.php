@@ -1,40 +1,44 @@
 @extends('layouts.principal')
 @section('hijos')
-<h1>Registrar Cursos</h1>
-<a href="curso/create" class="btn btn-primary">Registrar curso</a>
 
+<h1 class="fs-3 bg-body-secondary text-center  p-3 ">Registrar Cursos</h1>
 
-<table class="table">
-<thead>
-    <tr>
-        <th>ID</th>
-        <th>IdCurso</th>
-        <th>Nombre</th>
-        <th>Descripcion</th>
-        <th>Acciones</th>
-    </tr>
-</thead>
+<div class="container mt-4">
+    <a href="curso/create" class="btn btn-primary">Registrar curso</a>
 
-<tbody>
-    @foreach($cursos as $curso)
-    <tr>
-    <th>{{$curso->id}}</th>
-        <th>{{$curso->idcurso}}</th>
-        <th>{{$curso->nombre}}</th>
-        <th>{{$curso->descripcion}}</th>
-        <th>
-        <a href="/curso/{{$curso->id}}/edit" class="btn btn-info">Editar</a>
-        <th> 
-            <form action ="/curso/{{$seccion->id}}" method="POST"> 
-             @csrf
-             @method('Delete') 
-             <button type="submit" class="btn btn-warning">Eliminar</button>
-             </form>
-            </th>
-    </th>
-    </tr>
-    @endforeach
-</tbody>
+    <table class="table mt-3 table table-striped table-hover table-borderless  align-middle">
+        <thead class="table-light bg-primary ">
+            <tr>
+                <th>ID</th>
+                <th>IdCurso</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th class="text-center ">Acciones</th>
+            </tr>
+        </thead>
 
-</table>
+        <tbody class="table-group-divider fw-light ">
+            @foreach($cursos as $curso)
+            <tr>
+                <th class="fw-medium ">{{$curso->id}}</th>
+                <th class="fw-medium ">{{$curso->idcurso}}</th>
+                <th class="fw-medium ">{{$curso->nombre}}</th>
+                <th class="fw-medium ">{{$curso->descripcion}}</th>
+                <th>
+                    <a href="/curso/{{$curso->id}}/edit" class="btn btn-info">Editar</a>
+                    class="text-center d-flex gap-4 justify-content-center ">
+                    <form action="/curso/{{$seccion->id}}" method="POST">
+                        @csrf
+                        @method('Delete')
+                        <button type="submit" class="btn btn-warning">Eliminar</button>
+                    </form>
+
+                </th>
+            </tr>
+            @endforeach
+        </tbody>
+
+    </table>
+</div>
+
 @endsection
