@@ -24,10 +24,10 @@
                 <th class="fw-medium ">{{$curso->idcurso}}</th>
                 <th class="fw-medium ">{{$curso->nombre}}</th>
                 <th class="fw-medium ">{{$curso->descripcion}}</th>
-                <th>
+                <th class="text-center d-flex gap-4 justify-content-center ">
                     <a href="/curso/{{$curso->id}}/edit" class="btn btn-info">Editar</a>
-                    class="text-center d-flex gap-4 justify-content-center ">
-                    <form action="/curso/{{$seccion->id}}" method="POST">
+
+                    <form action="/curso/{{$curso->id}}" method="POST">
                         @csrf
                         @method('Delete')
                         <button type="submit" class="btn btn-warning">Eliminar</button>

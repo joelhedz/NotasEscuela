@@ -6,6 +6,7 @@ use App\Http\Controllers\NotaController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\ClaseController;
 use App\Http\Controllers\DocenteController;
+use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\SeccionController;
 use App\Models\AsignarClase;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,13 @@ Route::get('/asignar/{iddocente}', [AsignarClaseController::class, 'show']);
 Route::delete('/asignar/{iddocente}/{idasignarClase}', [AsignarClaseController::class, 'destroy'])->name('asignar.destroy');
 
 Route::resource('/asignar', 'App\Http\Controllers\AsignarClaseController');
+
+
+Route::get('/matricula', [MatriculaController::class, 'index'])->name('matricula');
+Route::get('/matricula/create', [MatriculaController::class, 'create']);
+Route::post('/matricula/create', [MatriculaController::class, 'store'])->name('matricula_store');
+Route::delete('/matricula/create', [MatriculaController::class, 'destroy'])->name('matricula_delete');
+
 
 Route::middleware([
     'auth:sanctum',

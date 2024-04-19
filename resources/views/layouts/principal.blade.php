@@ -63,7 +63,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link textColor" href="#">Matricula</a>
+                        <a class="nav-link textColor" href="/matricula">Matricula</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link textColor" href="#">Notas</a>

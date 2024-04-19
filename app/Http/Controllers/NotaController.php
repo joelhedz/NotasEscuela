@@ -21,7 +21,7 @@ class NotaController extends Controller
      */
     public function create(string $id)
     {
-        return view('nota.create')->with('identidad',$id);
+        return view('nota.create')->with('identidad', $id);
     }
 
     /**
@@ -30,12 +30,12 @@ class NotaController extends Controller
     public function store(Request $request)
     {
         $nota = new Nota();
-        $nota->idalumno=$request->get('idalumno');
-        $nota->nota=$request->get('nota');
-        $nota->idclase=$request->get('idclase');
-        $nota->idseccion=$request->get('idseccion');
+        $nota->idalumno = $request->get('idalumno');
+        $nota->nota = $request->get('nota');
+        $nota->idclase = $request->get('idclase');
+        $nota->idseccion = $request->get('idseccion');
         $nota->save();
-       return redirect('/alumno');
+        return redirect('/alumno');
     }
 
     /**
@@ -43,9 +43,9 @@ class NotaController extends Controller
      */
     public function show(string $id)
     {
-        $alumnos=Alumno::find($id);
-        $notas=Nota::All();
-        return view('nota.index')->with('notas',$notas)->with('alumno',$alumnos);
+        $alumnos = Alumno::find($id);
+        $notas = Nota::All();
+        return view('nota.index')->with('notas', $notas)->with('alumno', $alumnos);
     }
 
     /**
@@ -53,8 +53,8 @@ class NotaController extends Controller
      */
     public function edit(string $id)
     {
-        $editar=Nota::find($id);
-        return view('nota.edit')->with('editar', $editar); 
+        $editar = Nota::find($id);
+        return view('nota.edit')->with('editar', $editar);
     }
 
     /**
@@ -62,11 +62,11 @@ class NotaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $editar=Nota::find($id);
-        $editar->idalumno=$request->get('identidad');
-        $editar->nota=$request->get('nota');
-        $editar->idclase=$request->get('idclase');
-        $editar->idseccion=$request->get('idseccion');
+        $editar = Nota::find($id);
+        $editar->idalumno = $request->get('identidad');
+        $editar->nota = $request->get('nota');
+        $editar->idclase = $request->get('idclase');
+        $editar->idseccion = $request->get('idseccion');
         $editar->save();
         return redirect('/alumno');
     }
@@ -76,7 +76,7 @@ class NotaController extends Controller
      */
     public function destroy(string $id)
     {
-        $eliminarRegistro=Nota::find($id);
+        $eliminarRegistro = Nota::find($id);
         $eliminarRegistro->delete();
         return redirect('/alumno');
     }
