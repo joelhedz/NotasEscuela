@@ -9,7 +9,7 @@
 
                 <div class="mb-3">
                     <label for="identidad" class="form-label">Identidad</label>
-                    <input type="text" name="identidad" id="identidad" class="form-control">
+                    <input type="text" maxlength="13" name="identidad" id="identidad" class="form-control">
                 </div>
 
                 <div class="mb-3">
@@ -29,12 +29,17 @@
 
                 <div class="mb-3">
                     <label for="sexo" class="form-label">Sexo</label>
-                    <input type="text" name="sexo" id="sexo" class="form-control">
+                    <select name="sexo" id="sexo" class="form-select ">
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Otro">Otros 350 generos</option>
+                    </select>
+
                 </div>
 
                 <div class="mb-3">
                     <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-                    <input type="text" name="fechaN" id="fechaNacimiento" class="form-control">
+                    <input type="date" name="fechaN" id="fechaNacimiento" class="form-control">
                 </div>
 
                 <div class="text-center mt-4">

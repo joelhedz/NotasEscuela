@@ -17,9 +17,15 @@
                     <input type="text" name="nombre" class="form-control">
                 </div>
 
+
+
                 <div class="mb-3">
                     <label for="idSeccion">IdSeccion</label>
-                    <input type="text" name="idseccion" class="form-control">
+                    <select name="idseccion" class="form-select ">
+                        @foreach($secciones as $seccion)
+                        <option value="{{$seccion->id}}">{{$seccion->descripcion}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="text-center mt-5">

@@ -11,7 +11,7 @@
                 <th>ID</th>
                 <th>IdClase</th>
                 <th>Nombre</th>
-                <th>IdSeccion</th>
+                <th>Seccion</th>
                 <th class="text-center ">Acciones</th>
             </tr>
         </thead>
@@ -20,9 +20,9 @@
             @foreach($clases as $clase)
             <tr>
                 <th class="fw-medium ">{{$clase->id}}</th>
-                <th class="fw-medium ">{{$clase->idclase}}</th>
+                <th class="fw-medium ">{{$clase->seccion}}</th>
                 <th class="fw-medium ">{{$clase->nombre}}</th>
-                <th class="fw-medium ">{{$clase->idseccion}}</th>
+                <th class="fw-medium ">{{$clase->seccion}}</th>
                 <th class="text-center d-flex gap-4 justify-content-center ">
                     <a href="/clase/{{$clase->id}}/edit" class="btn btn-primary">Editar</a>
 

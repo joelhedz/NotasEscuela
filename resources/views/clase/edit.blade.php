@@ -19,8 +19,12 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="idSeccion" class="form-label">IdSeccion</label>
-                    <input type="text" name="idseccion" id="idseccion" value="{{$editar->idseccion}}" class="form-control">
+                    <label for="idSeccion">IdSeccion</label>
+                    <select name="idseccion" class="form-select ">
+                        @foreach($secciones as $seccion)
+                        <option value="{{$seccion->id}}" {{$seccion->descripcion == $seccionSeleccionada->descripcion?'selected':''}}>{{$seccion->descripcion}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="text-center mt-4">

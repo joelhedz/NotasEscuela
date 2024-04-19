@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-Use App\Models\Clase;
+use App\Models\Clase;
+use App\Models\Seccion;
+use Illuminate\Support\Facades\DB;
 
 class ClaseController extends Controller
 {
@@ -13,8 +15,12 @@ class ClaseController extends Controller
     public function index()
     {
         //
-        $clase=Clase::All();
-        return view('clase.index')->with('clases',$clase);
+
+        $clase = DB::table('clases')
+            ->join('seccions', 'clases.idseccion', '=', 'seccions.id')
+            ->select('clases.*', 'seccions.descripcion as seccion')
+            ->get();
+        return view('clase.index')->with('clases', $clase);
     }
 
     /**
@@ -22,8 +28,9 @@ class ClaseController extends Controller
      */
     public function create()
     {
-        //
-        return view('clase.create');
+        $seccion = Seccion::all();
+
+        return view('clase.create')->with('secciones', $seccion);
     }
 
     /**
@@ -33,10 +40,10 @@ class ClaseController extends Controller
     {
         //
         $clase = new Clase();
-        $clase ->idclase=$request->get('idclase');
-        $clase ->nombre=$request->get('nombre');
-        $clase ->idseccion=$request->get('idseccion');
-        $clase ->save();
+        $clase->idclase = $request->get('idclase');
+        $clase->nombre = $request->get('nombre');
+        $clase->idseccion = $request->get('idseccion');
+        $clase->save();
         return redirect('/clase');
     }
 
@@ -46,8 +53,8 @@ class ClaseController extends Controller
     public function show(string $id)
     {
         //
-        $eliminarRegistro=Clase::find($id);
-        return view('clase.delete')->with('eliminar',$eliminarRegistro);
+        $eliminarRegistro = Clase::find($id);
+        return view('clase.delete')->with('eliminar', $eliminarRegistro);
     }
 
     /**
@@ -55,9 +62,14 @@ class ClaseController extends Controller
      */
     public function edit(string $id)
     {
-        //
-        $editar=Clase::find($id);
-        return view('clase.edit')->with('editar', $editar);
+        $seccion = Seccion::all();
+        $seccionSeleccionada = DB::table('seccions')
+            ->join('clases', 'seccions.id', '=', 'clases.idseccion')
+            ->select('seccions.*')
+            ->where('clases.id', '=', $id)
+            ->first();
+        $editar = Clase::find($id);
+        return view('clase.edit')->with('editar', $editar)->with('secciones', $seccion)->with('seccionSeleccionada', $seccionSeleccionada);
     }
 
     /**
@@ -66,11 +78,11 @@ class ClaseController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $clase=Clase::find($id);
-        $clase ->idclase=$request->get('idclase');
-        $clase ->nombre=$request->get('nombre');
-        $clase ->idseccion=$request->get('idseccion');
-        $clase ->save();
+        $clase = Clase::find($id);
+        $clase->idclase = $request->get('idclase');
+        $clase->nombre = $request->get('nombre');
+        $clase->idseccion = $request->get('idseccion');
+        $clase->save();
         return redirect('/clase');
     }
 
@@ -80,7 +92,7 @@ class ClaseController extends Controller
     public function destroy(string $id)
     {
         //
-        $eliminarRegistro=Clase::find($id);
+        $eliminarRegistro = Clase::find($id);
         $eliminarRegistro->delete();
         return redirect('/clase');
     }
